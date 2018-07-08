@@ -1,0 +1,7 @@
+[user]
+	email = megabigfoutoir@gmail.com
+	name = sapristi
+[core]
+	editor = emacs
+[credential]
+	helper = "cache --timeout=999999"
