@@ -1,2 +1,8 @@
 *~
 emacs/elpa/
+emacs/ido.last
+emacs/init.el
+fish/completions
+config.fish
+fishd.*
+fishfile
