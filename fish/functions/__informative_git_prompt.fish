@@ -3,7 +3,7 @@
 
 set -g fish_color_git_clean $cc_aqua
 set -g fish_color_git_branch $cc_purple
-set -g fish_color_git_remote $cc_orange
+set -g fish_color_git_remote $cc_orange_e
 
 set -g fish_color_git_staged $cc_yellow
 set -g fish_color_git_conflicted $cc_red
