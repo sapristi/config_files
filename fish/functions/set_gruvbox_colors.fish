@@ -99,6 +99,11 @@ function set_colors_gruvbox_dark
     
 end
 
+function set_default
+    printf "set_gruvbox_colors : Unknown option %s\n" $option
+    printf "defaulting to gruvbox_light"
+    set_colors_gruvbox_light
+end
 
 function set_gruvbox_colors
     
@@ -119,9 +124,7 @@ function set_gruvbox_colors
         case gruvbox_light 
             set_colors_gruvbox_light
         case \*
-            printf "set_gruvbox_colors : Unknown option %s\n" $option
-            printf "defaulting to gruvbox_light"
-            set_colors_gruvbox_light
+            set_default
     end
 
     set -g fish_color_normal $cc_fg1
