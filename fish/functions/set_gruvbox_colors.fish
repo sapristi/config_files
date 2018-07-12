@@ -26,7 +26,7 @@ function set_colors_gruvbox_base
     set -g _gruvbox_red_d    9d0006
     set -g _gruvbox_green_d  79740e
     set -g _gruvbox_yellow_d b57614
-    set -g _gruvbox_blue_d   076678
+    set -g _gruvbox_blue_d   "076678"
     set -g _gruvbox_purple_d 8f3f71
     set -g _gruvbox_aqua_d   427b58
     set -g _gruvbox_orange_d af3a03
@@ -46,14 +46,6 @@ end
 
 
 function set_colors_gruvbox_light
-    set -g cc_red      $_gruvbox_red   
-    set -g cc_green    $_gruvbox_green  
-    set -g cc_yellow   $_gruvbox_yellow 
-    set -g cc_blue     $_gruvbox_blue  
-    set -g cc_purple   $_gruvbox_purple  
-    set -g cc_aqua     $_gruvbox_aqua  
-    set -g cc_orange   $_gruvbox_orange
-
     set -g cc_red_e    $_gruvbox_red_d
     set -g cc_green_e  $_gruvbox_green_d
     set -g cc_yellow_e $_gruvbox_yellow_d
@@ -84,7 +76,6 @@ function set_colors_gruvbox_dark
     set -g cc_aqua_e   $_gruvbox_aqua_b  
     set -g cc_orange_e $_gruvbox_orange_b
 
-    
     set -g cc_fg0 $_gruvbox_neutral_b0
     set -g cc_fg1 $_gruvbox_neutral_b1
     set -g cc_fg2 $_gruvbox_neutral_b2
