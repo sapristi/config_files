@@ -165,42 +165,42 @@ function  ____fish_git_remote_info
     echo $behind
 end
 
-function ____fish_git_remote_info_old
+# function ____fish_git_remote_info_old
 
-    set -l branch $argv[1]
-    set -l remote_name  (git config branch.$branch.remote)
+#     set -l branch $argv[1]
+#     set -l remote_name  (git config branch.$branch.remote)
 
-    if test -n "$remote_name"
-        set merge_name (git config branch.$branch.merge)
-        set merge_name_short (echo $merge_name | cut -c 12-)
-    else
-        set remote_name "origin"
-        set merge_name "refs/heads/$branch"
-        set merge_name_short $branch
-    end
+#     if test -n "$remote_name"
+#         set merge_name (git config branch.$branch.merge)
+#         set merge_name_short (echo $merge_name | cut -c 12-)
+#     else
+#         set remote_name "origin"
+#         set merge_name "refs/heads/$branch"
+#         set merge_name_short $branch
+#     end
 
-    if [ $remote_name = '.' ]  # local
-        set remote_ref $merge_name
-    else
-        set remote_ref "refs/remotes/$remote_name/$merge_name_short"
-    end
+#     if [ $remote_name = '.' ]  # local
+#         set remote_ref $merge_name
+#     else
+#         set remote_ref "refs/remotes/$remote_name/$merge_name_short"
+#     end
 
-    set -l rev_git (eval "git rev-list --left-right $remote_ref...HEAD" ^/dev/null)
-    if [ $status != "0" ]
-        set rev_git (eval "git rev-list --left-right $merge_name...HEAD" ^/dev/null)
-    end
+#     set -l rev_git (eval "git rev-list --left-right $remote_ref...HEAD" ^/dev/null)
+#     if [ $status != "0" ]
+#         set rev_git (eval "git rev-list --left-right $merge_name...HEAD" ^/dev/null)
+#     end
 
-    for i in $rev_git
-        if echo $i | grep '>' >/dev/null
-           set isAhead $isAhead ">"
-        end
-    end
+#     for i in $rev_git
+#         if echo $i | grep '>' >/dev/null
+#            set isAhead $isAhead ">"
+#         end
+#     end
 
-    set -l remote_diff (count $rev_git)
-    set -l ahead (count $isAhead)
-    set -l behind (math $remote_diff - $ahead)
+#     set -l remote_diff (count $rev_git)
+#     set -l ahead (count $isAhead)
+#     set -l behind (math $remote_diff - $ahead)
 
-    echo $ahead
-    echo $behind
+#     echo $ahead
+#     echo $behind
 
-end
+# end
