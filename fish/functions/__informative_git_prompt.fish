@@ -7,7 +7,7 @@ set -g fish_color_git_remote $cc_orange
 
 set -g fish_color_git_staged $cc_yellow
 set -g fish_color_git_conflicted $cc_red
-set -g fish_color_git_changed $cc_blue
+set -g fish_color_git_changed $cc_yellow_e
 set -g fish_color_git_untracked $cc_fg4
 
 
@@ -39,11 +39,11 @@ function __informative_git_prompt --description 'Write out the git prompt'
     if test -z $is_inside_work_tree
         return
     end
-    set_color $fish_color_normal
+    set_color normal
     echo -n "("
     printf "%s" (___fish_git_print_branch_info)
 
-    set_color $fish_color_normal
+    set_color normal
     echo -n "|"
     
     if [ $is_inside_work_tree = "true" ]
@@ -53,7 +53,7 @@ function __informative_git_prompt --description 'Write out the git prompt'
         echo -n $fish_prompt_git_status_git_dir
         
     end
-    set_color $fish_color_normal
+    set_color normal
     echo -n ")"
 #    printf "(%s|%s)" (___fish_git_print_branch_info) $git_status_info
 
@@ -77,7 +77,7 @@ function ___fish_git_print_branch_info
     
     set_color -o $fish_color_git_branch
     echo -n $branch
-    set_color $fish_color_normal
+    set_color normal
     echo -n $remote_info
     
     # echo -n "$color_branch$branch$color_normal$remote_info"
@@ -97,7 +97,7 @@ function ___fish_git_print_status_info
     if [ (math $changed + $conflicted + $staged) = 0 ]
         set_color $fish_color_git_clean
         echo -n $fish_prompt_git_status_clean
-        set_color $fish_color_normal
+        set_color normal
     end
         
     
@@ -121,7 +121,7 @@ function ___fish_git_print_status_info
         end
     end
     
-    set_color $fish_color_normal
+    set_color normal
 
 end
 
@@ -138,19 +138,19 @@ function ___fish_git_print_remote_info
     if [ $ahead != "0" ]
         set_color -o $fish_color_git_remote
         echo -n $fish_prompt_git_remote_ahead_of
-        set_color $fish_color_normal
+        set_color normal
         echo -n $ahead
     end
 
     if [ $behind != "0" ]
         set_color -o $fish_color_git_remote
         echo -n $fish_prompt_git_remote_behind
-        set_color $fish_color_normal
+        set_color normal
         echo -n $behind
 
     end
 
-    set_color $fish_color_normal
+    set_color normal
 end
 
 function ____fish_git_remote_info

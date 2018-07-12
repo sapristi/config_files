@@ -26,7 +26,7 @@ function set_colors_gruvbox_base
     set -g _gruvbox_red_d    9d0006
     set -g _gruvbox_green_d  79740e
     set -g _gruvbox_yellow_d b57614
-    set -g _gruvbox_blue_d   "076678"
+    set -g _gruvbox_blue_d   076678
     set -g _gruvbox_purple_d 8f3f71
     set -g _gruvbox_aqua_d   427b58
     set -g _gruvbox_orange_d af3a03
