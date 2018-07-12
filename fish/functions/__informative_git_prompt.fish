@@ -154,8 +154,8 @@ function ___fish_git_print_remote_info
     set -l branch $argv[1]
 
     set -l remote (git config branch.$branch.remote)
-    set -l ahead (git rev-list --count "$branch"..."$remote"/"$branch")
-    set -l behind (git rev-list --count "$remote"/"$branch"..."$branch")
+    set -l ahead (git rev-list --left-only --count "$branch"..."$remote"/"$branch")
+    set -l behind (git rev-list --right-only --count "$branch"..."$remote"/"$branch")
     
 
     if [ $ahead != "0" ]
