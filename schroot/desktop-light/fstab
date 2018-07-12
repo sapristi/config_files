@@ -12,12 +12,12 @@
 
 
 ### shared documents
-/home/Documents  /home/Documents none   rw,bind         0       0
+# /home/Documents  /home/Documents none   rw,bind         0       0
 
 ### fonts
-/usr/share/fonts /usr/share/fonts none rw,bind          0       0
+# /usr/share/fonts /usr/share/fonts none rw,bind          0       0
 ### themes
-/usr/share/themes /usr/share/themes none rw,bind          0       0
+# /usr/share/themes /usr/share/themes none rw,bind          0       0
 
 
 
@@ -31,7 +31,7 @@
 # may potentially cause undesirable behaviour on upgrades, such as
 # killing services on the host.
 # /run           /run            none    rw,bind         0       0
-# /run/user/1000 /run/user/1000  none   rw,bind,sapristi 0       0
+/run/user/1000 /run/user/1000  none   rw,bind,sapristi 0       0
 
 #/run/lock      /run/lock       none    rw,bind         0       0
 #/dev/shm       /dev/shm        none    rw,bind         0       0
