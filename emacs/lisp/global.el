@@ -21,6 +21,12 @@
 
 (package-initialize)
 
+;; use-package : automatic package fetching
+(require 'use-package)
+
+
+(use-package fish-mode
+  :ensure t)
 
 
 (provide 'global)

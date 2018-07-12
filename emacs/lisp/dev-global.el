@@ -1,4 +1,12 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; OLD DO NOT USE ;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+
+
 ;; merlin
+
+(use-package tuareg
+  :ensure t)
 
 (let ((opam-share (ignore-errors (car (process-lines "opam" "config"
    "var" "share")))))
