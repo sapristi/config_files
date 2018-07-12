@@ -5,37 +5,34 @@ function fish_prompt
         set -g VIRTUAL_ENV_DISABLE_PROMPT true
     end
     
-    set_colors_gruvbox_light
+    set_gruvbox_colors
     
     set_color normal
     echo -n "("
-    if set -q SCHROOT_CHROOT_NAME
-        set_color $cc_purple
-        echo -n (SCHROOT_CHROOT_NAME)
-        set_color normal
-        echo -n ">"
-    end
-    
     set_color $cc_aqua
     echo -n (prompt_hostname)
+    if set -q SCHROOT_CHROOT_NAME
+        set_color normal
+        echo -n ">"
+        set_color $cc_aqua_e
+        echo -n $SCHROOT_CHROOT_NAME
+    end
     set_color normal
-    echo -n ")"
+    echo -n ") "
 
-    set_color $cc_orange
+    set_color $cc_aqua
     printf '%s' (whoami)
     
     set_color normal
-    printf ' in '
+    printf ': '
 
-    set_color -o $cc_blue
-    printf '%s' (prompt_pwd)
+    set_color -o normal
+    printf '%s… ' (prompt_pwd)
     set_color normal
 
     # Line 2
-    echo
+
     if test $VIRTUAL_ENV
         printf "(%s) " (set_color blue)(basename $VIRTUAL_ENV)(set_color normal)
     end
-    printf '↪ '
-    set_color normal
 end

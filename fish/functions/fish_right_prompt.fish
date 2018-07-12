@@ -2,9 +2,8 @@ function display_git_untracked
     set -l untracked (command git status -s --ignore-submodules=untracked | grep "^??*" | wc -l | sed -e 's/^ *//' -e 's/ *$//' 2> /dev/null)
 
     if [ $untracked != "0" ]
-        set_color -b normal
-        set_color yellow
-        echo "$untracked untracked "
+        set_color $cc_green
+        printf "%su " $untracked
         set_color normal
     end
 end
@@ -16,9 +15,8 @@ function display_git_dirty
     set -l dirty (math $status_full - $untracked)
     
     if [ $dirty != "0" ]
-        set_color -b normal
-        set_color red
-        echo "$dirty dirty "
+        set_color $cc_red
+        printf "%sm " $dirty
         set_color normal
     end
 end        
