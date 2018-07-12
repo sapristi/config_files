@@ -55,7 +55,6 @@ function __informative_git_prompt --description 'Write out the git prompt'
     end
     set_color normal
     echo -n ")"
-#    printf "(%s|%s)" (___fish_git_print_branch_info) $git_status_info
 
 end
 
@@ -80,7 +79,6 @@ function ___fish_git_print_branch_info
     set_color normal
     echo -n $remote_info
     
-    # echo -n "$color_branch$branch$color_normal$remote_info"
     
 end
 
@@ -153,7 +151,21 @@ function ___fish_git_print_remote_info
     set_color normal
 end
 
-function ____fish_git_remote_info
+
+function  ____fish_git_remote_info
+    
+    set -l branch $argv[1]
+    set -l remote_name  (git config branch.$branch.remote)
+
+    set -l diffs (git rev-list --left-right --count "$branch"..."$remote_name"/"$branch")
+    set -l ahead (echo $diffs | cut -f1)
+    set -l behind (echo $diffs | cut -f2)
+    
+    echo $ahead
+    echo $behind
+end
+
+function ____fish_git_remote_info_old
 
     set -l branch $argv[1]
     set -l remote_name  (git config branch.$branch.remote)
