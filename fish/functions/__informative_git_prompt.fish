@@ -31,14 +31,23 @@ set -g fish_prompt_git_remote_space ""
 
 set -g fish_prompt_git_status_order staged conflicted changed untracked
 
+set -g git_prompt_check_remote_update false
 
 function __informative_git_prompt --description 'Write out the git prompt'
 
+
+    
     set -l is_inside_work_tree (git rev-parse --is-inside-work-tree ^/dev/null )
 
     if test -z $is_inside_work_tree
         return
     end
+
+    if [ $git_prompt_check_remote_update = "true" ]
+        git remote update
+    end
+
+
     set_color normal
     echo -n "("
     printf "%s" (___fish_git_print_branch_info)
