@@ -44,7 +44,6 @@ function __informative_git_prompt --description 'Write out the git prompt'
         return
     end
 
-    set_color normal
 
     set -l head_file (git rev-parse --show-toplevel)/.git/FETCH_HEAD
     set -l last_update (stat -c "%Y" $head_file)
@@ -60,7 +59,9 @@ function __informative_git_prompt --description 'Write out the git prompt'
         end
     end
     
-    echo -n "( remote "
+    set_color normal
+    echo -n "(" 
+    set_color $cc_fg4
     echo (__fuzzy_date $last_update)
     
 
