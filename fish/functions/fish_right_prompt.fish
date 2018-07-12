@@ -10,12 +10,16 @@ function display_git_untracked
 end
 
 function display_git_dirty
-    set -l dirty (command git status -s --ignore-submodules=untracked | grep "^ M*" | wc -l | sed -e 's/^ *//' -e 's/ *$//' 2> /dev/null)
-
+    set -l untracked (command git status -s --ignore-submodules=untracked | grep "^??*" | wc -l | sed -e 's/^ *//' -e 's/ *$//' 2> /dev/null)
+        
+    set -l status_full (command git status -s --ignore-submodules=untracked |  wc -l | sed -e 's/^ *//' -e 's/ *$//' 2> /dev/null)
+    set -l dirty (math $status_full - $untracked)
+    
     if [ $dirty != "0" ]
         set_color -b normal
         set_color red
         echo "$dirty dirty "
+        set_color normal
     end
 end        
 
