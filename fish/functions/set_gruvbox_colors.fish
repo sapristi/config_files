@@ -124,5 +124,5 @@ function set_gruvbox_colors
             set_colors_gruvbox_light
     end
 
-    set -g fish_color_normal fg1
+    set -g fish_color_normal $cc_fg1
 end

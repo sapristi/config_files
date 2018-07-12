@@ -32,12 +32,13 @@ end
 
 
 function fish_right_prompt -d "Prints right prompt"
-    
     if command git rev-parse --is-inside-work-tree >/dev/null 2>&1
 
-        display_git_untracked
-        display_git_dirty
-        display_git_branch
+        # display_git_untracked
+        # display_git_dirty
+        # display_git_branch
         
     end
+
+    __informative_git_prompt
 end
