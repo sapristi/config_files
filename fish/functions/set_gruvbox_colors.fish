@@ -10,7 +10,7 @@
 # set -xg _gruvbox_orange  d65d0e
 
 
-function set_gruvbox_colors_base
+function set_colors_gruvbox_base
     set -g _gruvbox_neutral_d0 282828
     set -g _gruvbox_neutral_d1 3c3836
     set -g _gruvbox_neutral_d2 504945
@@ -101,7 +101,7 @@ end
 
 function set_default
     printf "set_gruvbox_colors : Unknown option %s\n" $option
-    printf "defaulting to gruvbox_light"
+    echo -n "defaulting to gruvbox_light"
     set_colors_gruvbox_light
 end
 
@@ -116,7 +116,7 @@ function set_gruvbox_colors
     set -g cc_gray    924374
     set -g cc_orange  d65d0e
 
-    set_gruvbox_colors_base
+    set_colors_gruvbox_base
     
     switch "$_colors_theme"
         case gruvbox_dark
