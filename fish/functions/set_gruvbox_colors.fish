@@ -62,17 +62,17 @@ function set_colors_gruvbox_light
     set -g cc_aqua_e   $_gruvbox_aqua_d  
     set -g cc_orange_e $_gruvbox_orange_d
 
-    set -g cc_fg0 $cc_gruvbox_neutral_d0
-    set -g cc_fg1 $cc_gruvbox_neutral_d1
-    set -g cc_fg2 $cc_gruvbox_neutral_d2
-    set -g cc_fg3 $cc_gruvbox_neutral_d3
-    set -g cc_fg4 $cc_gruvbox_neutral_d4
+    set -g cc_fg0 $_gruvbox_neutral_d0
+    set -g cc_fg1 $_gruvbox_neutral_d1
+    set -g cc_fg2 $_gruvbox_neutral_d2
+    set -g cc_fg3 $_gruvbox_neutral_d3
+    set -g cc_fg4 $_gruvbox_neutral_d4
 
-    set -g cc_bg0 $cc_gruvbox_neutral_b0 
-    set -g cc_bg1 $cc_gruvbox_neutral_b1 
-    set -g cc_bg2 $cc_gruvbox_neutral_b2 
-    set -g cc_bg3 $cc_gruvbox_neutral_b3 
-    set -g cc_bg4 $cc_gruvbox_neutral_b4 
+    set -g cc_bg0 $_gruvbox_neutral_b0 
+    set -g cc_bg1 $_gruvbox_neutral_b1 
+    set -g cc_bg2 $_gruvbox_neutral_b2 
+    set -g cc_bg3 $_gruvbox_neutral_b3 
+    set -g cc_bg4 $_gruvbox_neutral_b4 
 end
 
 function set_colors_gruvbox_dark
@@ -85,17 +85,17 @@ function set_colors_gruvbox_dark
     set -g cc_orange_e $_gruvbox_orange_b
 
     
-    set -g cc_fg0 $cc_gruvbox_neutral_b0
-    set -g cc_fg1 $cc_gruvbox_neutral_b1
-    set -g cc_fg2 $cc_gruvbox_neutral_b2
-    set -g cc_fg3 $cc_gruvbox_neutral_b3
-    set -g cc_fg4 $cc_gruvbox_neutral_b4
+    set -g cc_fg0 $_gruvbox_neutral_b0
+    set -g cc_fg1 $_gruvbox_neutral_b1
+    set -g cc_fg2 $_gruvbox_neutral_b2
+    set -g cc_fg3 $_gruvbox_neutral_b3
+    set -g cc_fg4 $_gruvbox_neutral_b4
 
-    set -g cc_bg0 $cc_gruvbox_neutral_d0 
-    set -g cc_bg1 $cc_gruvbox_neutral_d1 
-    set -g cc_bg2 $cc_gruvbox_neutral_d2 
-    set -g cc_bg3 $cc_gruvbox_neutral_d3 
-    set -g cc_bg4 $cc_gruvbox_neutral_d4 
+    set -g cc_bg0 $_gruvbox_neutral_d0 
+    set -g cc_bg1 $_gruvbox_neutral_d1 
+    set -g cc_bg2 $_gruvbox_neutral_d2 
+    set -g cc_bg3 $_gruvbox_neutral_d3 
+    set -g cc_bg4 $_gruvbox_neutral_d4 
     
 end
 
