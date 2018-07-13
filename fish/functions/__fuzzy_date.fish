@@ -14,35 +14,33 @@ function __fuzzy_date -d "Prints a date (seconds from epoch) with precision depe
 
     
     set -l then $argv[1]
+    set -l then    (date "+%s" -d @$then)
+    set -l now     (date "+%s")
 
-    set -l then_year   (date "+%Y" -d @$then)
-    set -l then_month  (date "+%m" -d @$then)
-    set -l then_day    (date "+%j" -d @$then)
-    set -l then_hour   (date "+%H" -d @$then)
-    set -l then_min    (date "+%M" -d @$then)
-    set -l then_sec    (date "+%s" -d @$then)
+    set -l indexes 1   2   3    4   5     6
+    set -l units   sec min hour day month year
+    set -l factors  60  60  24   30  12    1
 
-    set -l this_year   (date "+%Y") 
-    set -l this_month  (date "+%m")
-    set -l this_day    (date "+%j")
-    set -l this_hour   (date "+%H")
-    set -l this_min    (date "+%M")
-    set -l this_sec    (date "+%s")
+    if [ $then = $now ]
+        echo "now"
+        return 0
+    end
 
-    set -l units year month day hour min sec
-
-    for unit in $units
-        set -l now "this_$unit"
-        set -l then "then_$unit"
-        set -l diff (math $$now - $$then)
-
-        if [ $diff -gt 1 ]
-            echo (___disp_diff $diff $unit)
+    set -l diff (math $now - $then)
+        
+    for i in $indexes
+        
+        if [ $diff -lt $factors[$i] ]
+            
+            echo ( ___disp_diff $diff $units[$i] )
             return 0
+        else
+            set now  ( math $now / $factors[$i] )
+            set then ( math $then / $factors[$i] )
+            set diff ( math $now - $then )
         end
     end
 
-    echo "now"
 end
     
     
