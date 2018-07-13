@@ -34,7 +34,7 @@ set -g fish_prompt_git_status_order staged conflicted changed untracked
 
 set -g git_prompt_check_remote_update true
 
-set -g git_prompt_remote_update_delay 3600
+set -g git_prompt_remote_update_delay 60
 
 
 
@@ -55,9 +55,10 @@ function __informative_git_prompt --description 'Write out the git prompt'
 
         if [ (math  $now - $last_update) -gt $git_prompt_remote_update_delay ]
             git remote update > /dev/null ^ /dev/null &
-            set_color $cc_fg4
+            set_color normal
             echo -n "git remote update… "
         end
+        
     end
 
 
