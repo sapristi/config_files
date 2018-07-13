@@ -61,12 +61,8 @@ function __informative_git_prompt --description 'Write out the git prompt'
     
     set_color normal
     echo -n "(" 
-    set_color $cc_fg4
-    echo (__fuzzy_date $last_update)
     
 
-    set_color normal
-    echo -n "|"
     printf "%s" (___fish_git_print_branch_info)
 
     set_color normal
@@ -77,8 +73,16 @@ function __informative_git_prompt --description 'Write out the git prompt'
     else
         set_color -o $fish_color_git_clean
         echo -n $fish_prompt_git_status_git_dir
-        
     end
+
+    
+    set_color normal
+    echo -n "|"
+
+    
+    set_color $cc_fg4
+    echo "⇅ "(__fuzzy_date $last_update)
+    
     set_color normal
     echo -n ")"
 
