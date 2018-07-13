@@ -19,6 +19,7 @@ set -g fish_prompt_git_status_conflicted '✖'
 set -g fish_prompt_git_status_changed '✚'
 set -g fish_prompt_git_status_untracked "…"
 set -g fish_prompt_git_status_clean "✔"
+set -g fish_prompt_git_update "⇅"
 
 set -g fish_prompt_git_show_count_staged "true"
 set -g fish_prompt_git_show_count_conflicted "true"
@@ -44,7 +45,6 @@ function __informative_git_prompt --description 'Write out the git prompt'
         return
     end
 
-
     set -l head_file (git rev-parse --show-toplevel)/.git/FETCH_HEAD
     set -l last_update (stat -c "%Y" $head_file)
 
@@ -53,20 +53,20 @@ function __informative_git_prompt --description 'Write out the git prompt'
         
         set -l now (date "+%s")
 
-                
         if [ (math  $now - $last_update) -gt $git_prompt_remote_update_delay ]
             git remote update > /dev/null ^ /dev/null &
         end
     end
+
+
+    set -l color_normal (set_color normal)
     
-    set_color normal
-    echo -n "(" 
+    echo -n $color_normal"(" 
     
 
     printf "%s" (___fish_git_print_branch_info)
 
-    set_color normal
-    echo -n "|"
+    echo -n $color_normal"|"
     
     if [ $is_inside_work_tree = "true" ]
         printf "%s" (___fish_git_print_status_info)
@@ -75,16 +75,14 @@ function __informative_git_prompt --description 'Write out the git prompt'
         echo -n $fish_prompt_git_status_git_dir
     end
 
-    
-    set_color normal
-    echo -n "|"
+    echo -n $color_normal"|"
 
+    echo -n $color_normal"⇅ "
     
     set_color $cc_fg4
-    echo "⇅ "(__fuzzy_date $last_update)
+    echo -n (__fuzzy_date $last_update)
     
-    set_color normal
-    echo -n ")"
+    echo -n $color_normal")"
 
 end
 
@@ -103,7 +101,6 @@ function ___fish_git_print_branch_info
         set remote_info (___fish_git_print_remote_info $branch)
     end
 
-    
     set_color -o $fish_color_git_branch
     echo -n $branch
     set_color normal
