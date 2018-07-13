@@ -55,6 +55,8 @@ function __informative_git_prompt --description 'Write out the git prompt'
 
         if [ (math  $now - $last_update) -gt $git_prompt_remote_update_delay ]
             git remote update > /dev/null ^ /dev/null &
+            set_color $cc_fg4
+            echo  "git remote update… "
         end
     end
 
