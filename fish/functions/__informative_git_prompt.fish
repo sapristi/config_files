@@ -45,21 +45,29 @@ function __informative_git_prompt --description 'Write out the git prompt'
         return
     end
 
+    
     set -l head_file (git rev-parse --show-toplevel)/.git/FETCH_HEAD
-    set -l last_update (stat -c "%Y" $head_file)
-
-
-    if [ $git_prompt_check_remote_update = "true" ]
+    
+    if [ -f $head_file ]
         
-        set -l now (date "+%s")
+        set -l last_update (stat -c "%Y" $head_file)
 
-        if [ (math  $now - $last_update) -gt $git_prompt_remote_update_delay ]
-            git remote update > /dev/null ^ /dev/null &
-            set_color normal
-            echo -n "git remote update… "
+        if [ $git_prompt_check_remote_update = "true" ]
+            
+            set -l now (date "+%s")
+            
+            if [ (math  $now - $last_update) -gt $git_prompt_remote_update_delay ]
+                git remote update > /dev/null ^ /dev/null &
+                set_color normal
+                echo -n "git remote update… "
+            end
+            
         end
-        
+    else
+        echo -n "git remote fetch"
+        git remote update > /dev/null ^ /dev/null &
     end
+        
 
 
     set -l color_normal (set_color normal)
