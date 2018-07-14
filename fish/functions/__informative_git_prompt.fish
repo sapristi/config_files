@@ -34,7 +34,7 @@ set -g fish_prompt_git_status_order staged conflicted changed untracked
 
 set -g git_prompt_check_remote_update true
 
-set -g git_prompt_remote_update_delay 60
+set -g git_prompt_remote_update_delay 3600
 
 
 
@@ -45,12 +45,12 @@ function __informative_git_prompt --description 'Write out the git prompt'
         return
     end
 
+    set -l last_update
+    set -l head_file (git rev-parse --show-toplevel)"/.git/FETCH_HEAD"
     
-    set -l head_file (git rev-parse --show-toplevel)/.git/FETCH_HEAD
     
-    if [ -f $head_file ]
-        
-        set -l last_update (stat -c "%Y" $head_file)
+    if [ -e $head_file ]
+        set last_update (stat -c "%Y" $head_file)
 
         if [ $git_prompt_check_remote_update = "true" ]
             
@@ -64,7 +64,8 @@ function __informative_git_prompt --description 'Write out the git prompt'
             
         end
     else
-        echo -n "git remote fetch"
+        echo -n $head_file
+        echo -n "git remote update…"
         git remote update > /dev/null ^ /dev/null &
     end
         
@@ -91,7 +92,11 @@ function __informative_git_prompt --description 'Write out the git prompt'
     echo -n $color_normal"⇅ "
     
     set_color $cc_fg4
-    echo -n (__fuzzy_date $last_update)
+    if [ -n $last_update ]
+        echo -n (__fuzzy_date $last_update)
+    else
+        echo -n "unknonw"
+    end
     
     echo -n $color_normal")"
 
