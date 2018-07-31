@@ -1,6 +1,11 @@
 
 #set -g fish_color_normal $cc_fg1
 
+
+set -g fish_color_git_staged $cc_yellow
+set -g fish_color_git_conflicted $cc_red
+set -g fish_color_git_changed $cc_yellow_e
+set -g fish_color_git_untracked $cc_fg4
 set -g fish_color_git_clean $cc_aqua
 set -g fish_color_git_branch $cc_purple
 set -g fish_color_git_remote $cc_orange_e
