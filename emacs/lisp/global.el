@@ -13,6 +13,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; auto revert mode
+(global-auto-revert-mode 1)
+
 ;; start fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
