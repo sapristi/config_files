@@ -27,19 +27,35 @@
 ;; tuareg + merlin
 
 
-(let ((tuareg-file-path  "/home/sapristi/.opam/system/share/emacs/site-lisp/tuareg-site-file"))
-  (if (file-exists-p tuareg-file-path)
-      (load "/home/sapristi/.opam/system/share/emacs/site-lisp/tuareg-site-file")
-    (message "tuareg file is not present; consider setting the right path or installing with opam")))
+;; if tuareg is installed via opam
+
+;; (let ((tuareg-file-path  
+;;	"/home/sapristi/.opam/4.06.1/share/emacs/site-lisp/tuareg-site-file"))
+;;  (if (file-exists-p tuareg-file-path)
+(load "/home/sapristi/.opam/4.06.1/share/emacs/site-lisp/tuareg-site-file")
+;;    (message "tuareg file is not present; consider setting the right path or installing with opam")))
+
 
 (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var"
-   "share")))))
-      (when (and opam-share (file-directory-p opam-share))
-       ;; Register Merlin
-       (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
-       (autoload 'merlin-mode "merlin" nil t nil)
-       ;; Automatically start it in OCaml buffers
-       (add-hook 'tuareg-mode-hook 'merlin-mode t)
-       (add-hook 'caml-mode-hook 'merlin-mode t)
-       ;; Use opam switch to lookup ocamlmerlin binary
-       (setq merlin-command 'opam)))
+                                                     "share")))))
+  (when (and opam-share (file-directory-p opam-share))
+    ;; Register Merlin
+    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+    (autoload 'merlin-mode "merlin" nil t nil)
+    ;; Automatically start it in OCaml buffers
+    (add-hook 'tuareg-mode-hook 'merlin-mode t)
+    (add-hook 'caml-mode-hook 'merlin-mode t)
+    ;; Use opam switch to lookup ocamlmerlin binary
+    (setq merlin-command 'opam)))
+
+
+;; outshine
+
+(defvar outline-minor-mode-prefix "\M-#")
+
+(use-package outshine
+  :ensure t)
+
+(require 'outshine)
+(add-hook 'outline-minor-mode-hook 'outshine-hook-function)
+(add-hook 'prog-mode-hook 'outline-minor-mode)
