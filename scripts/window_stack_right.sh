@@ -18,7 +18,7 @@ H=$(( $SCREEN_HEIGHT - $TOPMARGIN ))
 # X, change to move left or right:
 
 # moving to the right half of the screen:
-X=$(( 0 ))
+X=$(( $SCREEN_WIDTH / 2 ))
 # moving to the left:
 #X=0; 
 

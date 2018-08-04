@@ -4,6 +4,8 @@
   edit_tab_title = None
   edit_terminal_title = None
   edit_window_title = None
+  go_next = Forward
+  go_prev = Back
 [layouts]
   [[default]]
     [[[child1]]]
