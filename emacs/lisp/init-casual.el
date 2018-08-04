@@ -1,5 +1,6 @@
 (add-to-list 'load-path "/home/sapristi/.emacs.d/lisp")
 
+
 (require 'better-defaults)
 (require 'global)
 (custom-set-variables
