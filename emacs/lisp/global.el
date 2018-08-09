@@ -14,7 +14,8 @@
  )
 
 ;; auto revert mode
-(global-auto-revert-mode 1)
+(global-auto-revert-mode 3)
+(setq auto-revert-check-vc-info t)
 
 ;; start fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
