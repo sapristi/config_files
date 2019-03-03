@@ -1,8 +1,12 @@
 
 
 function fish_prompt
-    
+
     set_gruvbox_colors
+    
+    if set -q VIRTUAL_ENV
+        echo -n -s (set_color $_gruvbox_blue_d) "(" (basename "$VIRTUAL_ENV") - (python --version)")" (set_color normal) " "
+    end
     
     set_color $cc_fg4
     echo -n "("

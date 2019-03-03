@@ -32,7 +32,7 @@
 ;; (let ((tuareg-file-path  
 ;;	"/home/sapristi/.opam/4.06.1/share/emacs/site-lisp/tuareg-site-file"))
 ;;  (if (file-exists-p tuareg-file-path)
-(load "/home/sapristi/.opam/4.06.1/share/emacs/site-lisp/tuareg-site-file")
+;; (load "/home/sapristi/.opam/4.06.1/share/emacs/site-lisp/tuareg-site-file")
 ;;    (message "tuareg file is not present; consider setting the right path or installing with opam")))
 
 
@@ -57,5 +57,5 @@
   :ensure t)
 
 (require 'outshine)
-(add-hook 'outline-minor-mode-hook 'outshine-hook-function)
+(add-hook 'outline-minor-mode-hook 'outshine-mode)
 (add-hook 'prog-mode-hook 'outline-minor-mode)

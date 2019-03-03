@@ -1,4 +1,4 @@
-v=2.14.1
+v=2.14.2
 
 N=gazellegames
 I=sacapatates
@@ -10,7 +10,7 @@ C=/msg VERTIGO IDENTIFY sacapatates saihtam
 
 N=lainchan
 E=UTF-8 (Unicode)
-F=59
+F=51
 D=0
 S=irc.lainchan.org/+6697
 J=#lainchan
@@ -232,6 +232,9 @@ S=chat.freenode.net
 S=irc.freenode.net
 C=msg NickServ identify saihtam
 J=
+J=#emacs
+J=#coreboot
+J=#ocaml
 
 N=Furnet
 E=UTF-8 (Unicode)
