@@ -15,7 +15,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (tuareg use-package fish-mode outshine))))
+ '(package-selected-packages (quote (web-mode tuareg use-package fish-mode outshine))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -59,3 +59,30 @@
 (require 'outshine)
 (add-hook 'outline-minor-mode-hook 'outshine-mode)
 (add-hook 'prog-mode-hook 'outline-minor-mode)
+
+
+;; project org-mode todo states
+
+(setq org-todo-keywords
+      '((sequence "TODO" "STARTED" "CURRENT"  "|" "DONE" "CANCELED")))
+
+
+(setq org-todo-keyword-faces
+      '(("TODO" . "yellow")
+        ("STARTED" . "orange")
+        ("CURRENT" .  (:foreground "red" :weight bold))
+        ("DONE"    .  "lime green")
+        ("CANCELED" .  "deep blue sky")))
+
+
+
+;; web mode
+
+(use-package web-mode
+  :ensure t)
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+(setq web-mode-engines-alist
+      '(("html"    . "\\.html\\'"))
+)
