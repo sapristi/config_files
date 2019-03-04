@@ -1,4 +1,4 @@
-(add-to-list 'load-path "/home/sapristi/.emacs.d/lisp")
+(add-to-list 'load-path "/home/sapristi/Documents/config files/emacs/emacs-common/lisp")
 
 
 (require 'better-defaults)

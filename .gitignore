@@ -1,8 +1,7 @@
 *~
-emacs/elpa/
-emacs/ido.last
-emacs/init.el
-emacs/session*
+elpa/
+ido.last
+session*
 emacs/tramp
 fish/completions
 config.fish
