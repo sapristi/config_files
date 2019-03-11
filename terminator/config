@@ -1,0 +1,31 @@
+[global_config]
+  title_transmit_bg_color = "#8f5902"
+[keybindings]
+  cycle_next = None
+  cycle_prev = None
+  edit_tab_title = None
+  edit_terminal_title = None
+  edit_window_title = None
+  move_tab_left = None
+  move_tab_right = None
+  next_tab = Forward
+  prev_tab = Back
+[layouts]
+  [[default]]
+    [[[child1]]]
+      command = ""
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#fbf1c7"
+    copy_on_selection = True
+    cursor_color = "#aaaaaa"
+    foreground_color = "#3c3836"
+    palette = "#fbf1c7:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#7c6f64:#928374:#9d0006:#79740e:#b57614:#076678:#8f3f71:#427b58:#3c3836"
+    scrollback_lines = 5000
